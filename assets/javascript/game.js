@@ -1,4 +1,4 @@
-// Clickingeither "SHOOT" button represents a shot 
+// Clicking either "SHOOT" button represents a shot 
 // for that team. Shots should havbe a random chance 
 // of succeeding or failing. ( Sounds like I)
 // The number of shots taken should increase for
@@ -31,10 +31,12 @@ const teamTwoGoals = document.querySelector("#teamtwo-numgoals")
 teamTwoButton.addEventListener("click", function () {
     console.log("+ button clicked");
     Math.random();
-    let teamTwoShotTaken = Number(teamOneShot.innerHTML) + 1;
+    let teamTwoShotTaken = Number(teamTwoShot.innerHTML) + 1;
     teamTwoShot.innerHTML = teamTwoShotTaken
     if (Math.random() < .5) {
         console.log("+ team scored")
+        let teamTwoGoalsMade = Number(teamTwoGoals.innerHTML) + 1;
+        teamTwoGoals.innerHTML = teamTwoGoalsMade
     }
 })
 
@@ -43,4 +45,11 @@ const numResets = document.querySelector("#num-resets")
 resetButton.addEventListener("click", function () {
     console.log("+ resetButton clicked");
     teamOneShot.innerHTML = 0
+    teamTwoShot.innerHTML = 0
+    let numberResets = Number(numResets.innerHTML) + 1;
+    console.log(numberResets)
+    numResets.innerHTML = numberResets
+    teamOneGoals.innerHTML = 0
+    teamTwoGoals.innerHTML = 0
+
 })
